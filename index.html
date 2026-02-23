@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Contribution List</title>
 </head>
+
 <body>
     <section class="main">
         <section class="heading">
             <section class="searchbar">
-                <input 
-                    name="Text"
-                    class="accountInput"
-                    type="text"
-                    placeholder="github account"
-                    id="username"
-                />
-                <div><span></span></div>
-                <input 
-                    name="repo"
-                    class="repoInput"
-                    type="text"
-                    placeholder="owner/repo"
-                    id="repo"
-                />
-
+                <input name="Text" class="accountInput" type="text" placeholder="github account" id="username" />
+                <div class="separator"><span></span></div>
+                <input name="repo" class="repoInput" type="text" placeholder="owner/repo" id="repo" />
                 <div class="searchIcon">
-                    <img src="/search.svg" />
+                    <img src="./search.svg" alt="search" />
                 </div>
             </section>
         </section>
+
+        <div id="loading-overlay" class="loader-container">
+            <div class="spinner"></div>
+            <p>Summoning Data...</p>
+        </div>
+
         <section class="details">
+
             <section class="profile">
                 <div class="dp">
-                    <img src="/maki.jpg" />
+                    <img src="./maki.jpg" id="profile-pic" />
                 </div>
                 <div class="profileDetails">
                     <div class="detailsHeader">
-                        <p>Maki Zenin</p>
+                        <p id="display-name">Maki Zenin</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="label">Followers</span>
+                            <span class="value" id="follower-count">0</span>
+                        </div>
+                        <!-- <div class="stat-item">
+        <span class="label">Impact</span>
+        <span class="value" style="color: #28a745;" id="adds-count">+0</span>
+        <span class="value" style="color: #cb2431;" id="dels-count">-0</span>
+    </div> -->
                     </div>
                 </div>
             </section>
 
             <section class="contributionList">
-                <div><canvas id="myChart"></canvas></div>
+                <div class="chart-box">
+                    <canvas id="myChart"></canvas>
+                </div>
             </section>
         </section>
-    </section>        
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
@@ -55,4 +64,5 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script type="module" src="index.js"></script>
 </body>
+
 </html>

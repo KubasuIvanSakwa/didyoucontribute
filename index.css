@@ -1,224 +1,266 @@
 :root {
     --color-bgdark: #282C33;
-    --color-icondark: #9BA1AD;
+    --color-accent: #007FFF;
     --color-lighttext: #FFFFFF;
     --color-darktext: #64746F;
-    --color-inactive: #ABB2BF;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--color-bgdark);
+    overflow-x: hidden;
 }
 
 .main {
     width: 100%;
-    height: 100vh;
-    display: flex; 
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 10rem;
-    padding-right: 10rem;
-    background: url('/background.svg');
+    align-items: center;
+    padding: 2rem;
+    background: url('./background.svg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
-.heading {
-    width: 100%;
-}
-
+/* SEARCH BAR SECTION */
 .searchbar {
     width: 100%;
-    /* background-color: red; */
+    max-width: 600px;
     height: 20rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+}
+
+.accountInput,
+.repoInput {
+    height: 3.5rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0 1.5rem;
+    font-size: 1.1rem;
+    outline: none;
 }
 
 .accountInput {
-    width: 20rem;
-    height: 3rem;
-    border-top-left-radius: 20rem;
-    border-bottom-left-radius: 20rem;
-    outline: none;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    font-size: 1.3rem;
-    color: var(--color-lighttext);
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 45%;
+    border-radius: 20rem 0 0 20rem;
     border-right: none;
-    caret-color: var(--color-darktext);
-    box-shadow: 
-        -8px 8px 32px 0 rgba(255, 255, 255, 0.1), 
-        inset 1px -1px 0 0 rgba(255, 255, 255, 0.2);
-}
-
-input::placeholder {
-  color: var(--color-lighttext); 
-  opacity: .3;
 }
 
 .repoInput {
-    width: 15rem;
-    height: 3rem;
-    border-top-right-radius: 20rem;
-    border-bottom-right-radius: 20rem;
-    outline: none;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    font-size: 1.3rem;
-    color: var(--color-darktext);
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 35%;
+    border-radius: 0;
     border-left: none;
-    caret-color: var(--color-darktext);
-    position: relative;
-    box-shadow: 
-        8px 8px 32px 0 rgba(255, 255, 255, 0.1), 
-        inset -1px -1px 0 0 rgba(255, 255, 255, 0.2);
+    border-right: none;
 }
 
-.searchbar div {
-    width: 0.5rem;
-    height: 3rem;
-    background-color: white;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);    
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);    
+.separator {
+    width: 10px;
+    height: 3.5rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
 
-    /* 1. The Tint: Use a very faint white or dark tint */
-    background-color: rgba(255, 255, 255, 0.05); 
-    
-    /* 2. The Blur: 0.5rem is a good start, 10px-15px is common */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    box-shadow: 
-        0 10px 30px 0 rgba(255, 255, 255, 0.1), 
-        inset 0 -1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
-.searchbar div span {
-    display: inline-flex;
-    width: 0.2rem;
-    height: 2.3rem;
-    border-radius: 20rem;
-    background-color: var(--color-darktext);
-    
+.separator span {
+    width: 2px;
+    height: 60%;
+    background: var(--color-darktext);
+    opacity: 0.4;
 }
 
-.searchbar .searchIcon {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%; /* standard for circular buttons */
-    margin-left: 0.4rem;
-
-    box-shadow: 
-        0 8px 32px 0 rgba(255, 255, 255, 0.1), 
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    
-    /* 4. Center the icon inside */
+.searchIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 0 20rem 20rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-/* Add a hover effect for that high-grade feel */
-.searchbar .searchIcon:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
-
-
-.searchbar .searchIcon, 
-.repoInput, 
-.accountInput,
-.profile .profileDetails,
-.contributionList {
-    /* 1. The Tint: Use a very faint white or dark tint */
-    background-color: rgba(255, 255, 255, 0.05); 
-
-    /* 2. The Blur: 0.5rem is a good start, 10px-15px is common */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-}
-
+/* RESULTS AREA */
 .details {
     width: 100%;
-    height: 100%;
-    /* background-color: red; */
-    position: relative;
-    display: flex;
-    gap: 5rem;
+    max-width: 1200px;
+    display: none;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
 }
 
-.profile .dp {
+/* USER CARD */
+.profile {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    position: relative;
+    padding-top: 4rem;
+}
+
+.dp {
     width: 8rem;
     height: 8rem;
-    overflow: hidden;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0.2rem solid #656565;
-    position: absolute;
-    z-index: 1;
-}
-
-.profile .dp img {
-    width: 10rem;
-}
-
-.profile .profileDetails {
-    width: 20rem;
-    height: 18rem;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    left: 2rem;
-    top: 2rem;
-    border-radius: 3rem;
-    box-shadow: 
-        0 8px 32px 0 rgba(255, 255, 255, 0.1), 
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    overflow: hidden
-}
-
-.contributionList {
-    width: 100%;
-    height: 18rem;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    top: 2rem;
-    border-radius: 3rem;
+    border: 3px solid #656565;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    z-index: 5;
+    background: var(--color-bgdark);
+}
+
+.dp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profileDetails {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 2.5rem;
+    padding: 5rem 2rem 2rem;
+}
+
+.detailsHeader p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 1.2rem;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-item .label {
+    color: var(--color-darktext);
+    font-size: 0.8rem;
+    display: block;
+}
+
+.stat-item .value {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* CHART AREA */
+.contributionList {
+    flex: 2;
+    min-width: 350px;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 2.5rem;
+    padding: 2rem;
+    height: auto;
+    min-height: 400px;
+}
+
+.chart-box {
+    width: 100%;
+    height: 300px;
+}
+
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 44, 51, 0.7);
+    backdrop-filter: blur(10px);
+    display: none;
+    /* Hidden by default */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
-.contributionList div {
-    width: 30rem;
-    height: 20rem;
-    display: flex;
-    align-items: center
+.loader-container p {
+    color: white;
+    margin-top: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
-.detailsHeader {
-    width: 100%;
-    height: 10rem;
-    background-color: red;
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--glass-border);
+    border-top: 5px solid var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .profile {
+        max-width: 100%;
+    }
+
+    .contributionList {
+        min-height: 300px;
+        padding: 1rem;
+    }
+
+    .detailsHeader p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
