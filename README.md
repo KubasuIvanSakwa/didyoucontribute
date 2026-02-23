@@ -26,20 +26,21 @@ Tools: VS Code (or any text editor), a modern Web Browser.
 Dependencies: None (all libraries are loaded via CDN for simplicity).
 
 ### 4. Installation & Setup Instructions
+
 To get this running on your local machine, follow these steps:
 
-    1 Clone the Repository: Open your terminal and run:
-    ```Bash
-        git clone https://github.com/your-username/maki-stats.git
-    ```
-    2 Navigate to the Folder:
-    ```Bash
-        cd maki-stats
-    ```
+1 Clone the Repository: Open your terminal and run:
+```Bash
+git clone https://github.com/KubasuIvanSakwa/didyoucontribute.git
+```
+2 Navigate to the Folder:
+```Bash
+cd maki-stats
+```
 
-    3 Launch the App: * Right-click index.html in VS Code and select "Open with Live Server".
+3 Launch the App: * Right-click index.html in VS Code and select "Open with Live Server".
 
-    4 The app will automatically open at http://127.0.0.1:5500.
+4 The app will automatically open at http://127.0.0.1:5500.
 
 
 ### 5. Minimal Working Example
@@ -79,8 +80,8 @@ Issue: Elements were hidden on page load.
 Fix: Used gsap.set(".details", {display: "none"}) to ensure a clean entry animation.
 
 ### 8. References
-Chart.js Official Docs
+[Chart.js Official Docs](https://www.chartjs.org/)
 
-GSAP Animation Documentation
+[GSAP Animation Documentation](https://gsap.com/)
 
-GitHub REST API Reference
+[GitHub REST API Reference](https://docs.github.com/en/rest)
