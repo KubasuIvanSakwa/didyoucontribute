@@ -35,7 +35,7 @@ git clone https://github.com/KubasuIvanSakwa/didyoucontribute.git
 ```
 2 Navigate to the Folder:
 ```Bash
-cd maki-stats
+cd didyoucontribute
 ```
 
 3 Launch the App: * Right-click index.html in VS Code and select "Open with Live Server".
